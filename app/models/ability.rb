@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
@@ -7,11 +5,14 @@ class Ability
     # Define abilities for the user here. For example:
     #
     return unless user.present?
-      can :read, :all
-      can [create:, :destroy], Food, user_id: user.id
-      can [create:, :destroy], Recipe, user_id: user.id
+
+    can :read, :all
+    can :read, Recipe, public: true || user_id: user.id
+    can %i[create destroy], Food, user_id: user.id
+    can %i[create destroy], Recipe, user_id: user.id
     return unless user.admin?
-      can :manage, :all
+
+    can :manage, :all
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
