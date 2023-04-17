@@ -7,7 +7,6 @@ class Ability
     return unless user.present?
 
     can :read, :all
-    can :read, Recipe, public: true || user_id: user.id
     can %i[create destroy], Food, user_id: user.id
     can %i[create destroy], Recipe, user_id: user.id
     return unless user.admin?
