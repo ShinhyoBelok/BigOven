@@ -13,3 +13,64 @@
  *= require_tree .
  *= require_self
  */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
+
+* {
+  font-family: 'Caveat', sans-serif;
+  font-size: 1.4rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+  text-align: center;
+}
+
+body {
+  background-image: url("https://img.freepik.com/free-photo/concept-homemade-baking-is-whisk-whipping-cupcake-molds-pink-background-zero-waste-copy-space_127032-2582.jpg?w=1380&t=st=1681845225~exp=1681845825~hmac=0b7179c4a6192a5345eb2d0b510e1f958ce1e8731f03623f60f05225bb609d41");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  padding: 0 5rem;
+}
+
+button {
+  box-sizing: border-box;
+  padding: 0 0.4rem;
+  font-size: 1.2rem;
+}
+
+.two-btn {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+table {
+  margin-top: 1rem;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+td,
+th {
+  border: 1px solid black;
+  text-align: center;
+}
+
+table th {
+  box-sizing: border-box;
+  padding: 0 1rem;
+  background-color: #deb88f;
+}
+
+tr {
+  border: 1px solid black;
+}
+
+.food_container {
+  display: flex;
+  flex-direction: column;
+}
