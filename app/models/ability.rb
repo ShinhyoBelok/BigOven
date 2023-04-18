@@ -6,10 +6,10 @@ class Ability
     #
     return unless user.present?
 
-    can :read, :all
-    can %i[create destroy], Food, user_id: user.id
-    can %i[create destroy], Recipe, user_id: user.id
-    return unless user.admin?
+    can %i[read create destroy], Food, user_id: user.id
+    can %i[read create destroy], Recipe, user_id: user.id
+
+    return unless user.role == 'admin'
 
     can :manage, :all
     #
