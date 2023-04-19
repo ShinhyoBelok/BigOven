@@ -7,8 +7,9 @@ Rails.application.routes.draw do
 
   resources :users
   resources :foods
-  resources :recipes
-  resources :recipe_foods
+  resources :recipes do
+    resources :recipe_foods, only: [:new, :create, :destroy, :update, :edit]
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
