@@ -26,7 +26,7 @@
 <div class="ingredient-value column">
 <h3 class="table-header">Value</h3>
 <% @recipe_foods.each do |recipe_food| %>
-  <%= content_tag :span, recipe_food.food.price, class: 'description'%><br>
+  <%= content_tag :span, recipe_food.food.price*recipe_food.quantity, class: 'description'%><br>
   <% end %>
 </div>
 <div class="ingredient-action column">
