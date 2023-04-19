@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "/shoping_list", to: "foods#shoping_list"
   post "/recipes/:id", to: "recipes#toggle"
   get "/public_recipes", to: "recipes#public"
+
   resources :users
   resources :foods
   resources :recipes
