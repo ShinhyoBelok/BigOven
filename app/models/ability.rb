@@ -5,9 +5,10 @@ class Ability
     # Define abilities for the user here. For example:
     #
     return unless user.present?
-
-    can %i[read create destroy], Food, user_id: user.id
-    can %i[read create destroy], Recipe, user_id: user.id
+    
+    can :read, :all
+    can %i[create update destroy], Food, user_id: user.id
+    can %i[create update destroy], Recipe, user_id: user.id
     
     return unless user.role == 'admin'
 
