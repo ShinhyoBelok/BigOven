@@ -32,7 +32,7 @@
 
   <div class="btns-container">
   <button class="btn">Generate Shopping List</button>
-  <%= link_to "Add ingredient", new_recipe_recipe_food_path(recipe), class: 'new-btn btn' %>
+  <% if can? :update, recipe %><%= link_to "Add ingredient", new_recipe_recipe_food_path(recipe), class: 'new-btn btn' %><% end %>
   </div>
 
 </div>

@@ -19,6 +19,7 @@ class RecipeFoodsController < ApplicationController
 
   # GET /recipe_foods/1/edit
   def edit
+    @recipe_food.destroy
     @foods = Food.all.where(user_id: current_user.id)
   end
 
@@ -43,7 +44,7 @@ class RecipeFoodsController < ApplicationController
   def update
     respond_to do |format|
       if @recipe_food.update(recipe_food_params)
-        format.html { redirect_to recipe_food_url(@recipe_food), notice: 'Recipe food was successfully updated.' }
+        format.html { redirect_to recipe_path(@recipe_food_id), notice: 'Recipe food was successfully updated.' }
         format.json { render :show, status: :ok, location: @recipe_food }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -71,6 +72,6 @@ class RecipeFoodsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def recipe_food_params
-    params.require(:recipe_food).permit(:quantity, :recipe_id, :food_id)
+    params.require(:recipe_food).permit(:quantity, :food_id)
   end
 end
