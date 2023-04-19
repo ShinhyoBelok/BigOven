@@ -32,8 +32,6 @@ development:
   # username: hellorails
   # password: psqlhellorailspass123
   username: postgres
-
-  # # The password associated with the postgres role (username).
   password: familyCu11en
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -61,8 +59,6 @@ test:
   <<: *default
   database: BigOven_test
   username: postgres
-
-  # # The password associated with the postgres role (username).
   password: familyCu11en
   # username: hellorails
   # password: psqlhellorailspass123
