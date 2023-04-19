@@ -14,7 +14,7 @@
     <%= recipe.preparation_time %>
   </p>
 
-  <%= button_to (@recipe.public ? "Public" : "Private"), @recipe, method: :toggle, class: (@recipe.public ? "public" : "private") %>
+  <% if can? :update, @recipe %><%= button_to (@recipe.public ? "Public" : "Private"), @recipe, method: :toggle, class: (@recipe.public ? "public" : "private") %><% end %>
 
 </div>
 
@@ -32,7 +32,7 @@
 
   <div class="btns-container">
   <button class="btn">Generate Shopping List</button>
-  <%= link_to "Add ingredient", new_food_path(current_user), class: 'new-btn btn' %>
+  <% if can? :update, recipe %><%= link_to "Add ingredient", new_recipe_recipe_food_path(recipe), class: 'new-btn btn' %><% end %>
   </div>
 
 </div>
