@@ -73,4 +73,137 @@ tr {
 .food_container {
   display: flex;
   flex-direction: column;
+
+/* --------recipes#index---------- */
+
+.logout-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#recipes {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.my-recipes-container {
+  margin-left: 20%;
+  margin-right: 20%;
+  display: flex;
+  flex-direction: column;
+}
+
+.my-recipe-container {
+  display: flex;
+  border: 2px solid #000;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 15px;
+}
+
+.my-recipes-title {
+  text-align: center;
+}
+
+.header-btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-btn {
+  text-decoration: none;
+}
+
+.gen-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.description-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 75%;
+}
+
+/* --------recipes#show---------- */
+
+.private {
+  background-color: #5e5c5c;
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+  color: #fff;
+}
+
+.public {
+  background-color: #00b300;
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+  color: #fff;
+}
+
+.recipe-details-main-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+}
+
+.header-w-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btns-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  background-color: #d3d3d3;
+  padding: 7px;
+  border-radius: 10px;
+  border: none;
+  color: #000;
+  cursor: pointer;
+}
+
+.more-btns-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.link {
+  color: #000;
+}
+
+.ingredients-table {
+  display: flex;
+}
+
+.column {
+  width: 25%;
+  border: 1px solid #000;
+}
+
+.table-header {
+  background-color: #5e5c5c;
+  margin-top: 0;
+  padding: 5px;
 }

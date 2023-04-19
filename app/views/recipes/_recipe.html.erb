@@ -1,14 +1,24 @@
 <div id="<%= dom_id recipe %>">
-  <p>
-    <strong>Name:</strong>
-    <%= recipe.name %>
-  </p>
 
-  <p>
+<div class="title-container">
+<p>
+<strong>Recipe:</strong>
+<%= recipe.id %>
+</p>
+</div>
+
+<div class="header-w-btn">
+
+<p>
     <strong>Preparation time:</strong>
     <%= recipe.preparation_time %>
   </p>
 
+  <%= button_to (@recipe.public ? "Public" : "Private"), @recipe, method: :toggle, class: (@recipe.public ? "public" : "private") %>
+
+</div>
+
+<div class="more-details">
   <p>
     <strong>Cooking time:</strong>
     <%= recipe.cooking_time %>
@@ -18,15 +28,11 @@
     <strong>Description:</strong>
     <%= recipe.description %>
   </p>
+  </div>
 
-  <p>
-    <strong>Public:</strong>
-    <%= recipe.public %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= recipe.user_id %>
-  </p>
+  <div class="btns-container">
+  <button class="btn">Generate Shopping List</button>
+  <%= link_to "Add ingredient", new_food_path(current_user), class: 'new-btn btn' %>
+  </div>
 
 </div>

@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+<div class='my-recipes-container'>
+<h1 class='my-recipes-title'> Public Recipes</h1>
+
+<%= link_to "Back to my recipes", recipes_path, class: 'link' %>
+<div id="recipes">
+  <% @recipes.each do |recipe| %>
+    <%= link_to recipe_path(recipe.id) do %>
+    <div class= 'my-recipe-container'>
+    <div class='gen-container'>
+    <%= content_tag :span, "Recipe by #{recipe.user.name}", class: 'index' %><br>
+    <% if can? :destroy, recipe %><%= button_to "Destroy this recipe", recipe_path(recipe.id), method: :delete %><% end %>
+    </div>
+    <div class='description-container'>
+    <%= content_tag :span, recipe.description, class: 'description'%>
+    </div>
+    </div>
+    <% end %>
+  <% end %>
+</div>
+
+</div>
