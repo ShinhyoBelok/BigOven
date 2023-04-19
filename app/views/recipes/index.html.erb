@@ -17,7 +17,7 @@
     <div class= 'my-recipe-container'>
     <div class='gen-container'>
     <%= content_tag :span, "Recipe ##{index+1}", class: 'index' %><br>
-    <% if can? :destroy, recipe %><%= button_to "Destroy this recipe", recipe_path(recipe.id), method: :delete %><% end %>
+    <% if can? :destroy, recipe %><%= button_to "Delete", recipe_path(recipe.id), method: :delete %><% end %>
     </div>
     <div class='description-container'>
     <%= content_tag :span, recipe.description, class: 'description'%>
