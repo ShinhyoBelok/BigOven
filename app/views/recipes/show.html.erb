@@ -3,7 +3,6 @@
 <%= render @recipe %>
 
 <div class="more-btns-container">
-<% if can? :update, @recipe %><%= link_to "Edit this recipe", edit_recipe_path(@recipe), class: 'link' %><% end %>
   <%= link_to "Back to recipes", recipes_path, class: 'link' %>
 
   <% if can? :destroy, @recipe %><%= button_to "Destroy this recipe", @recipe, method: :delete, class: "delete-btn" %><% end %>
