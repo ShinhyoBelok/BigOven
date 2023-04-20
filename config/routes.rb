@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "recipes#index"
   get "/shoping_list", to: "foods#shoping_list"
-  post "/recipes/:id/toggle", to: "recipes#toggle"
+  post "/recipes/:id", to: "recipes#toggle"
   get "/public_recipes", to: "recipes#public"
 
   resources :users
