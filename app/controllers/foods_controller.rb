@@ -60,18 +60,18 @@ class FoodsController < ApplicationController
     @shopping_list_foods = []
     @total_price = 0
     @recipe_foods.each do |recipe_food|
-      food = @foods.find { |food| food.id == recipe_food.food_id }
+      food = @foods.find { |food_item| food_item.id == recipe_food.food_id }
       quantity = food.quantity - recipe_food.quantity
 
-      if food && quantity < 0
-        @shopping_list_foods << {
-          name: food.name,
-          quantity: quantity * -1,
-          measurement_unit: food.measurement_unit,
-          price: food.price
-        }
-        @total_price += food.price
-      end
+      next unless food && quantity.negative?
+
+      @shopping_list_foods << {
+        name: food.name,
+        quantity: quantity * -1,
+        measurement_unit: food.measurement_unit,
+        price: food.price
+      }
+      @total_price += food.price
     end
   end
 
