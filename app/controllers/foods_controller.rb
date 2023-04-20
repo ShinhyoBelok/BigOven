@@ -1,10 +1,10 @@
 class FoodsController < ApplicationController
-  before_action :set_food, only: %i[show edit update destroy]
-  load_and_authorize_resource
+  # before_action :set_food, only: %i[show edit update destroy]
+  # load_and_authorize_resource
 
   # GET /foods or /foods.json
   def index
-    @foods = Food.all
+    @foods = Food.all.where(user_id: current_user)
   end
 
   # GET /foods/1 or /foods/1.json
@@ -14,9 +14,6 @@ class FoodsController < ApplicationController
   def new
     @food = Food.new
   end
-
-  # GET /foods/1/edit
-  # def edit; end
 
   # POST /foods or /foods.json
   def create
@@ -57,7 +54,26 @@ class FoodsController < ApplicationController
     end
   end
 
-  def shoping_list; end
+  def shopping_list
+    @recipe_foods = RecipeFood.all.where(recipe_id: params[:id])
+    @foods = Food.all.where(user_id: current_user)
+    @shopping_list_foods = []
+    @total_price = 0
+    @recipe_foods.each do |recipe_food|
+      food = @foods.find { |food| food.id == recipe_food.food_id }
+      quantity = food.quantity - recipe_food.quantity
+
+      if food && quantity < 0
+        @shopping_list_foods << {
+          name: food.name,
+          quantity: quantity * -1,
+          measurement_unit: food.measurement_unit,
+          price: food.price
+        }
+        @total_price += food.price
+      end
+    end
+  end
 
   private
 
