@@ -1,0 +1,18 @@
+<h1>Shopping list</h1>
+<section class="shopping_list_container">
+    <div class="sub_title">
+        <h3>Amount of food items to buy: <%= @shopping_list_foods.length %></h3>
+        <h3>Total value of food needed: $ <%= @total_price %></h3>
+    </div>
+    <table>
+        <tr>
+            <th>Food</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+        <% @shopping_list_foods.each do |food| %>
+            <%= render 'shopping_food', food: food %>
+        <% end %>
+    </table>
+</section>
+
