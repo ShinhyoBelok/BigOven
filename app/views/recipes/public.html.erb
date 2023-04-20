@@ -9,10 +9,10 @@
     <div class= 'my-recipe-container'>
     <div class='gen-container'>
     <%= content_tag :span, "Recipe by #{recipe.user.name}", class: 'index' %><br>
-    <% if can? :destroy, recipe %><%= button_to "Delete", recipe_path(recipe.id), method: :delete %><% end %>
     </div>
     <div class='description-container'>
-    <%= content_tag :span, recipe.description, class: 'description'%>
+    <%= content_tag :span, "Total food items: #{recipe.recipe_foods.size}", class: 'total-items'%>
+    <%= content_tag :span, "Total Price: $#{recipe.recipe_foods.sum { |rf| rf.food.price * rf.quantity }}", class: 'price' %>
     </div>
     </div>
     <% end %>
