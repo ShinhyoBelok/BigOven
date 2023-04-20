@@ -2,7 +2,7 @@
 
 <%= button_to "Logout", destroy_user_session_path, method: :delete %>
 <%= button_to "Foods", foods_path, method: :get %>
-<%= button_to "Shoping list", "/shoping_list", method: :get %>
+<%# <%= button_to "Shoping list", "/shoping_list", method: :get %>
 
 <div class='my-recipes-container'>
 <h1 class='my-recipes-title'> My Recipes</h1>
@@ -13,16 +13,16 @@
 
 <div id="recipes">
   <% @recipes.each_with_index do |recipe, index| %>
-    <%= link_to recipe_path(recipe.id) do %>
     <div class= 'my-recipe-container'>
-    <div class='gen-container'>
-    <%= content_tag :span, "Recipe ##{index+1}", class: 'index' %><br>
-    <% if can? :destroy, recipe %><%= button_to "Delete", recipe_path(recipe.id), method: :delete %><% end %>
+      <div class='gen-container'>
+        <%= link_to recipe_path(recipe.id) do %>
+          <%= content_tag :span, "#{recipe.name}", class: 'index' %><br>
+        <% end %>
+        <% if can? :destroy, recipe %><%= button_to "Delete", recipe_path(recipe.id), method: :delete %><% end %>
+      </div>
+      <div class='description-container'>
+        <%= content_tag :span, recipe.description, class: 'description'%>
+      </div>
     </div>
-    <div class='description-container'>
-    <%= content_tag :span, recipe.description, class: 'description'%>
-    </div>
-    </div>
-    <% end %>
   <% end %>
 </div>

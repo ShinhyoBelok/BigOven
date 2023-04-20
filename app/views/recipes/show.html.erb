@@ -1,42 +1,20 @@
-<p style="color: green"><%= notice %></p>
 <div class="recipe-details-main-container">
-<%= render @recipe %>
+  <%= render @recipe %>
 
-<div class="more-btns-container">
-  <%= link_to "Back to recipes", recipes_path, class: 'link' %>
-
-  <% if can? :destroy, @recipe %><%= button_to "Destroy this recipe", @recipe, method: :delete, class: "delete-btn" %><% end %>
-</div>
-
-<div class="ingredients-table">
-<div class="ingredient-name column">
-<h3 class="table-header">Food</h3>
-<% @recipe_foods.each do |recipe_food| %>
-  <%= content_tag :span, recipe_food.food.name, class: 'description'%>
-  <% end %>
+  <div class="more-btns-container">
+    <%= link_to "Back to recipes", recipes_path, class: 'link' %> 
+    <% if can? :destroy, @recipe %><%= button_to "Destroy this recipe", @recipe, method: :delete, class: "delete-btn" %><% end %>
   </div>
 
-  <div class="ingredient-quantity column">
-  <h3 class="table-header">Quantity</h3>
-  <% @recipe_foods.each do |recipe_food| %>
-    <%= content_tag :span, recipe_food.quantity, class: 'description'%><br>
+  <table id="foods">
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Value</th>
+      <th>Actions</th>
+    </tr>
+    <% @recipe_foods.each do |recipe_food| %>
+      <%= render 'food', recipe_food: recipe_food %>
     <% end %>
-</div>
-<div class="ingredient-value column">
-<h3 class="table-header">Value</h3>
-<% @recipe_foods.each do |recipe_food| %>
-  <%= content_tag :span, recipe_food.food.price*recipe_food.quantity, class: 'description'%><br>
-  <% end %>
-</div>
-<div class="ingredient-action column">
-<h3 class="table-header">Actions</h3>
-<% @recipe_foods.each do |recipe_food| %>
-  <div class="recipe_foods-btns">
-  <%= button_to "Delete", recipe_recipe_food_path(recipe_food.recipe_id, recipe_food.id), method: :delete, class: "delete-btn btn" %>
-  <%= link_to "Update", edit_recipe_recipe_food_path(recipe_food.recipe_id, recipe_food.id) %>
-  </div>
-  <% end %>
-</div>
-
-  </div>
+  </table>
 </div>

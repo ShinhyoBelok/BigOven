@@ -24,6 +24,7 @@
 h1 {
   font-size: 2.4rem;
   text-align: center;
+  margin: 0;
 }
 
 body {
@@ -121,6 +122,15 @@ tr {
   flex-direction: column;
 }
 
+#recipes a {
+  text-decoration: none;
+  color: #000;
+}
+
+#recipes button {
+  margin-top: 1.5rem;
+}
+
 .description-container {
   display: flex;
   flex-direction: column;
@@ -211,4 +221,10 @@ tr {
 
 .recipe_foods-btns {
   display: flex;
+  gap: 0.3rem;
+  justify-content: center;
+}
+
+.more-details p {
+  margin-top: 0;
 }

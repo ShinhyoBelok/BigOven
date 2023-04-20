@@ -8,10 +8,8 @@
 </div>
 
 <div class="header-w-btn">
-
-<p>
-    <strong>Preparation time:</strong>
-    <%= recipe.preparation_time %>
+  <p>
+    <strong>Preparation time: <%= recipe.preparation_time %> h</strong>
   </p>
 
   <% if can? :update, @recipe %><%= button_to (@recipe.public ? "Public" : "Private"), @recipe, method: :toggle, class: (@recipe.public ? "public" : "private") %><% end %>
@@ -20,13 +18,11 @@
 
 <div class="more-details">
   <p>
-    <strong>Cooking time:</strong>
-    <%= recipe.cooking_time %>
+    <strong>Cooking time: <%= recipe.cooking_time %> h</strong>
   </p>
 
   <p>
-    <strong>Description:</strong>
-    <%= recipe.description %>
+    <strong><%= recipe.cooking_steps %></strong>
   </p>
   </div>
 

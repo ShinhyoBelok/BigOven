@@ -1,0 +1,20 @@
+<tr>
+  <td>
+    <%= recipe_food.food.name %>
+  </td>
+
+  <td>
+    <%= recipe_food.food.quantity %>
+  </td>
+
+  <td>
+    <div>$ <%= recipe_food.food.price %></div>
+  </td>
+
+  <td>
+    <div class="recipe_foods-btns">
+        <%= button_to "Delete", recipe_recipe_food_path(recipe_food.recipe_id, recipe_food.id), method: :delete, class: "delete-btn btn" %>
+        <%= link_to "Update", edit_recipe_recipe_food_path(recipe_food.recipe_id, recipe_food.id) %>
+    </div>
+  </td>
+</tr>
