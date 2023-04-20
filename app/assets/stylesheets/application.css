@@ -34,6 +34,9 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   box-sizing: border-box;
+}
+
+.body_container {
   padding: 0 5rem;
 }
 
@@ -122,9 +125,20 @@ tr {
   flex-direction: column;
 }
 
+.btns a {
+  color: brown;
+}
+
 #recipes a {
   text-decoration: none;
   color: #000;
+}
+
+.btns button {
+  border: none;
+  border-radius: 0.2rem;
+  color: white;
+  background-color: brown;
 }
 
 #recipes button {
@@ -239,4 +253,27 @@ tr {
 .sub_title {
   display: flex;
   justify-content: space-evenly;
+}
+
+/***** navbar *****/
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  border-bottom: 2px solid #bc7140;
+}
+
+nav img {
+  width: 2rem;
+}
+
+.btns {
+  display: flex;
+  gap: 1rem;
+}
+
+.logo_div {
+  display: flex;
+  gap: 0.3rem;
 }
