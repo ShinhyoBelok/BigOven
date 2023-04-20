@@ -10,7 +10,7 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
     @foods = Food.all.where(recipe_id: @recipe.id)
-    @recipe_foods = RecipeFood.all.where(recipe_id: @recipe.id)
+    @recipe_foods = RecipeFood.all.where(recipe_id: @recipe.id).includes([:food])
   end
 
   # GET /recipes/new
@@ -71,7 +71,8 @@ class RecipesController < ApplicationController
   end
 
   def public
-    @recipes = Recipe.all.where(public: true).order(created_at: :desc)
+    @recipes = Recipe.all.where(public: true).order(created_at: :desc).includes([:user]).includes([:recipe_foods])
+
   end
 
   private
