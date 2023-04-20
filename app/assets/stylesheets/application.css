@@ -228,3 +228,15 @@ tr {
 .more-details p {
   margin-top: 0;
 }
+
+/***** shopping_list_container *****/
+
+.shopping_list_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.sub_title {
+  display: flex;
+  justify-content: space-evenly;
+}
