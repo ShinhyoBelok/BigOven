@@ -27,7 +27,7 @@
   </div>
 
   <div class="btns-container">
-  <button class="btn">Generate Shopping List</button>
+  <%= button_to "Generate Shopping List", "/recipes/#{recipe.id}/shopping_list", method: 'get', class: 'btn' %>
   <% if can? :update, recipe %><%= link_to "Add ingredient", new_recipe_recipe_food_path(recipe), class: 'new-btn btn' %><% end %>
   </div>
 
