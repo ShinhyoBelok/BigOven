@@ -1,9 +1,9 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @food %>
-
-<div>
-  <%= link_to "Back to foods", foods_path(@food) %>
-
-  <%= button_to "Delete", food_path(@food), method: :delete %>
-</div>
+<table id="foods">
+  <tr>
+    <th>Food</th>
+    <th>Measurement unit</th>
+    <th>Unit price</th>
+    <th>Quantity</th>
+  </tr>
+  <%= render 'food_detail', food: @food %>
+</table>

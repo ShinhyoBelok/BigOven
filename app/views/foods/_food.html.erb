@@ -1,6 +1,6 @@
-<tr id="<%= dom_id food %>">
+<tr class="food_tr">
   <td>
-    <%= food.name %>
+    <%= link_to "#{food.name}", food_path(food) %>
   </td>
 
   <td>
