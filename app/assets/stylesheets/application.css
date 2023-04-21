@@ -273,6 +273,11 @@ nav img {
   width: 2rem;
 }
 
+nav a {
+  text-decoration: none;
+  color: black;
+}
+
 .btns {
   display: flex;
   gap: 1rem;

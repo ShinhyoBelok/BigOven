@@ -10,10 +10,10 @@
     <%= javascript_importmap_tags %>
     <%= favicon_link_tag 'https://www.inventicons.com/uploads/iconset/1207/wm/512/stove-baked-oven-foodrestaurant-toolsutensils-baking-cupcakes-94.png' %>
     <nav>
-      <div class="logo_div">
+      <%= link_to(root_path, class: "logo_div") do %>
         <img src="https://www.inventicons.com/uploads/iconset/1207/wm/512/stove-baked-oven-foodrestaurant-toolsutensils-baking-cupcakes-94.png" alt="oven icon">
         <span>BigOven</span>
-      </div>
+      <% end %>
       <div class="btns">
         <%= link_to "Foods", foods_path, method: :get %>
         <%= link_to "My recipes", recipes_path, method: :get %>
