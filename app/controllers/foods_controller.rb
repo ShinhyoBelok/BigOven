@@ -71,7 +71,7 @@ class FoodsController < ApplicationController
         measurement_unit: food.measurement_unit,
         price: food.price
       }
-      @total_price += food.price
+      @total_price += food.price*quantity*-1
     end
   end
 
