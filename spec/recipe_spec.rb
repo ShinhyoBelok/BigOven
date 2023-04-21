@@ -1,26 +1,27 @@
 require 'rails_helper'
 RSpec.describe Recipe, type: :model do
-  subject { FactoryBot.create(:recipe) }
-
-  before do
+  let(:user) { User.create(name: 'Shahadat Hossain', email: 'test@example.com', password: '12345678') }
+  let(:food) { Food.create(name: 'chicken', measurement_unit: 'cups', quantity: '1', price: '20', user:) }
+  let(:recipe) do
+    Recipe.create(name: 'rissoto', preparation_time: '10', cooking_time: '5', description: '2', public: true, user:)
   end
 
   it 'recipe should be valid' do
-    expect(subject).to be_valid
+    expect(recipe).to be_valid
   end
 
   it 'if name is not present, recipe must not be valid' do
-    subject.name = nil
-    expect(subject).to_not be_valid
+    recipe.name = nil
+    expect(recipe).to_not be_valid
   end
 
   it 'if preparation_time is not a integer number, recipe must not be valid' do
-    subject.preparation_time = -8.2
-    expect(subject).to_not be_valid
+    recipe.preparation_time = -8.2
+    expect(recipe).to_not be_valid
   end
 
   it 'if cooking_time is not a integer number, recipe must not be valid' do
-    subject.cooking_time = -8.2
-    expect(subject).to_not be_valid
+    recipe.cooking_time = -8.2
+    expect(recipe).to_not be_valid
   end
 end
