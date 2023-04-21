@@ -129,6 +129,11 @@ tr {
   color: brown;
 }
 
+.food_tr a {
+  text-decoration: none;
+  color: black;
+}
+
 #recipes a {
   text-decoration: none;
   color: #000;
