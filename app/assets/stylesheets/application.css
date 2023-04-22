@@ -125,6 +125,11 @@ tr {
   flex-direction: column;
 }
 
+nav a {
+  text-decoration: none;
+  color: black;
+}
+
 .btns a {
   color: brown;
 }
@@ -271,11 +276,6 @@ nav {
 
 nav img {
   width: 2rem;
-}
-
-nav a {
-  text-decoration: none;
-  color: black;
 }
 
 .btns {

@@ -11,10 +11,12 @@
       <th>Food</th>
       <th>Quantity</th>
       <th>Value</th>
+      <% if can? :destroy, @recipe %>
       <th>Actions</th>
+      <% end %>
     </tr>
     <% @recipe_foods.each do |recipe_food| %>
-      <%= render 'food', recipe_food: recipe_food %>
+      <%= render 'food', recipe_food: recipe_food, recipe: @recipe %>
     <% end %>
   </table>
 </div>
