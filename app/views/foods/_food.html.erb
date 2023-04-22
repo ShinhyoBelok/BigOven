@@ -1,0 +1,17 @@
+<tr class="food_tr">
+  <td>
+    <%= link_to "#{food.name}", food_path(food) %>
+  </td>
+
+  <td>
+    <%= food.measurement_unit %>
+  </td>
+
+  <td>
+    <div>$ <%= food.price %></div>
+  </td>
+
+  <td>
+    <%= button_to "Delete", food_path(food), method: :delete %>
+  </td>
+</tr>

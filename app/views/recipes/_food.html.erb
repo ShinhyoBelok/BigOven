@@ -1,0 +1,22 @@
+<tr>
+  <td>
+    <%= recipe_food.food.name %>
+  </td>
+
+  <td>
+    <%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %>
+  </td>
+
+  <td>
+    <div>$ <%= recipe_food.food.price*recipe_food.quantity %></div>
+  </td>
+
+  <% if can? :destroy, recipe %>
+  <td>
+    <div class="recipe_foods-btns">
+        <%= button_to "Delete", recipe_recipe_food_path(recipe_food.recipe_id, recipe_food.id), method: :delete, class: "delete-btn btn" %>
+        <%= link_to "Update", edit_recipe_recipe_food_path(recipe_food.recipe_id, recipe_food.id) %>
+    </div>
+  </td>
+  <% end %>
+</tr>

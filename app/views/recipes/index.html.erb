@@ -1,0 +1,22 @@
+<div class='my-recipes-container'>
+<h1 class='my-recipes-title'> My Recipes</h1>
+<div class="header-btns">
+<%= link_to "Go to public recipes", public_recipes_path, class: 'new-btn' %>
+<%= link_to "Add new recipe", new_recipe_path(current_user), class: 'new-btn' %>
+</div>
+
+<div id="recipes">
+  <% @recipes.each_with_index do |recipe, index| %>
+    <div class= 'my-recipe-container'>
+      <div class='gen-container'>
+        <%= link_to recipe_path(recipe.id) do %>
+          <%= content_tag :span, "#{recipe.name}", class: 'index' %><br>
+        <% end %>
+        <% if can? :destroy, recipe %><%= button_to "Delete", recipe_path(recipe.id), method: :delete %><% end %>
+      </div>
+      <div class='description-container'>
+        <%= content_tag :span, recipe.description, class: 'description'%>
+      </div>
+    </div>
+  <% end %>
+</div>

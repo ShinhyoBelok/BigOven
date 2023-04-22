@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BigOven</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <%= favicon_link_tag 'https://www.inventicons.com/uploads/iconset/1207/wm/512/stove-baked-oven-foodrestaurant-toolsutensils-baking-cupcakes-94.png' %>
+    <nav>
+      <%= link_to(root_path, class: "logo_div") do %>
+        <img src="https://www.inventicons.com/uploads/iconset/1207/wm/512/stove-baked-oven-foodrestaurant-toolsutensils-baking-cupcakes-94.png" alt="oven icon">
+        <span>BigOven</span>
+      <% end %>
+      <div class="btns">
+        <%= link_to "Foods", foods_path, method: :get %>
+        <%= link_to "My recipes", recipes_path, method: :get %>
+        <%= link_to "Public recipes", public_recipes_path, method: :get %>
+        <%= button_to "Logout", destroy_user_session_path, method: :delete %>
+      </div>
+    </nav>
+  </head>
+  <body>
+    <div class="body_container">
+      <%= yield %>
+    </div>
+  </body>
+</html>

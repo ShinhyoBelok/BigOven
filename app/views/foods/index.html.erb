@@ -1,0 +1,20 @@
+<section class="food_container">
+  <div class="two-btn">
+    <%= button_to "Add food", new_food_path, method: :get %>
+    <%= button_to "Back to recipes", recipes_path, method: :get %>
+  </div>
+
+  <table id="foods">
+    <tr>
+      <th>Food</th>
+      <th>Measurement unit</th>
+      <th>Unit price</th>
+      <th>Actions</th>
+    </tr>
+    <% @foods.each do |food| %>
+      <% if can? :read, food %>
+        <%= render food %>
+      <% end %>
+    <% end %>
+  </table>
+</section>

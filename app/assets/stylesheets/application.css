@@ -1,0 +1,289 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
+
+* {
+  font-family: 'Caveat', sans-serif;
+  font-size: 1.4rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+  text-align: center;
+  margin: 0;
+}
+
+body {
+  background-image: url("https://img.freepik.com/free-photo/concept-homemade-baking-is-whisk-whipping-cupcake-molds-pink-background-zero-waste-copy-space_127032-2582.jpg?w=1380&t=st=1681845225~exp=1681845825~hmac=0b7179c4a6192a5345eb2d0b510e1f958ce1e8731f03623f60f05225bb609d41");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+}
+
+.body_container {
+  padding: 0 5rem;
+}
+
+button {
+  box-sizing: border-box;
+  padding: 0 0.4rem;
+  font-size: 1.2rem;
+}
+
+.two-btn {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+table {
+  margin-top: 1rem;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+td,
+th {
+  border: 1px solid black;
+  text-align: center;
+}
+
+table th {
+  box-sizing: border-box;
+  padding: 0 1rem;
+  background-color: #deb88f;
+}
+
+tr {
+  border: 1px solid black;
+}
+
+.food_container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------recipes#index---------- */
+
+.logout-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#recipes {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.my-recipes-container {
+  margin-left: 20%;
+  margin-right: 20%;
+  display: flex;
+  flex-direction: column;
+}
+
+.my-recipe-container {
+  display: flex;
+  border: 2px solid #000;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 15px;
+}
+
+.my-recipes-title {
+  text-align: center;
+}
+
+.header-btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-btn {
+  text-decoration: none;
+}
+
+.gen-container {
+  display: flex;
+  flex-direction: column;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+}
+
+.btns a {
+  color: brown;
+}
+
+.food_tr a {
+  text-decoration: none;
+  color: black;
+}
+
+#recipes a {
+  text-decoration: none;
+  color: #000;
+}
+
+.btns button {
+  border: none;
+  border-radius: 0.2rem;
+  color: white;
+  background-color: brown;
+}
+
+#recipes button {
+  margin-top: 1.5rem;
+}
+
+.description-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 75%;
+}
+
+/* --------recipes#show---------- */
+
+.private {
+  background-color: #5e5c5c;
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+  color: #fff;
+}
+
+.public {
+  background-color: #00b300;
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+  color: #fff;
+}
+
+.recipe-details-main-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+}
+
+.header-w-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btns-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  background-color: #d3d3d3;
+  padding: 7px;
+  border-radius: 10px;
+  border: none;
+  color: #000;
+  cursor: pointer;
+}
+
+.more-btns-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.link {
+  color: #000;
+}
+
+.ingredients-table {
+  display: flex;
+}
+
+.column {
+  width: 25%;
+  border: 1px solid #000;
+}
+
+.table-header {
+  background-color: #5e5c5c;
+  margin-top: 0;
+  padding: 5px;
+}
+
+.recipe_foods-btns {
+  display: flex;
+  gap: 0.3rem;
+  justify-content: center;
+}
+
+.more-details p {
+  margin-top: 0;
+}
+
+/***** shopping_list_container *****/
+
+.shopping_list_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.sub_title {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/***** navbar *****/
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  border-bottom: 2px solid #bc7140;
+}
+
+nav img {
+  width: 2rem;
+}
+
+.btns {
+  display: flex;
+  gap: 1rem;
+}
+
+.logo_div {
+  display: flex;
+  gap: 0.3rem;
+}

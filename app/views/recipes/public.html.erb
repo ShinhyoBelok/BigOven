@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+<div class='my-recipes-container'>
+<h1 class='my-recipes-title'> Public Recipes</h1>
+
+<%= link_to "Back to my recipes", recipes_path, class: 'link' %>
+<div id="recipes">
+  <% @recipes.each do |recipe| %>
+    <%= link_to recipe_path(recipe.id) do %>
+    <div class= 'my-recipe-container'>
+    <div class='gen-container'>
+    <%= content_tag :span, "Recipe by #{recipe.user.name}", class: 'index' %><br>
+    </div>
+    <div class='description-container'>
+    <%= content_tag :span, "Total food items: #{recipe.recipe_foods.size}", class: 'total-items'%>
+    <%= content_tag :span, "Total Price: $#{recipe.recipe_foods.sum { |rf| rf.food.price * rf.quantity }}", class: 'price' %>
+    </div>
+    </div>
+    <% end %>
+  <% end %>
+</div>
+
+</div>

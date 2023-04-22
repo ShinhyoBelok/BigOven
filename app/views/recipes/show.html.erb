@@ -1,0 +1,22 @@
+<div class="recipe-details-main-container">
+  <%= render @recipe %>
+
+  <div class="more-btns-container">
+    <%= link_to "Back to recipes", recipes_path, class: 'link' %> 
+    <% if can? :destroy, @recipe %><%= button_to "Destroy this recipe", @recipe, method: :delete, class: "delete-btn" %><% end %>
+  </div>
+
+  <table id="foods">
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Value</th>
+      <% if can? :destroy, @recipe %>
+      <th>Actions</th>
+      <% end %>
+    </tr>
+    <% @recipe_foods.each do |recipe_food| %>
+      <%= render 'food', recipe_food: recipe_food, recipe: @recipe %>
+    <% end %>
+  </table>
+</div>
