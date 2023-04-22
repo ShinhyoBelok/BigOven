@@ -42,23 +42,25 @@ class FoodsController < ApplicationController
   end
 
   def shopping_list
+    @recipe = Recipe.find(params[:id])
     @recipe_foods = RecipeFood.all.where(recipe_id: params[:id])
-    @foods = Food.all.where(user_id: current_user)
+    @foods = @recipe.public ? Food.all : Food.all.where(user_id: current_user)
     @shopping_list_foods = []
     @total_price = 0
     @recipe_foods.each do |recipe_food|
       food = @foods.find { |food_item| food_item.id == recipe_food.food_id }
-      quantity = food.quantity - recipe_food.quantity
 
-      next unless food && quantity.negative?
+      @quantity = if @recipe.public
+                    recipe_food.quantity * -1
+                  else
+                    food.quantity - recipe_food.quantity
+                  end
 
-      @shopping_list_foods << {
-        name: food.name,
-        quantity: quantity * -1,
-        measurement_unit: food.measurement_unit,
-        price: food.price
-      }
-      @total_price += food.price * quantity * -1
+      next unless food && @quantity.negative?
+
+      @shopping_list_foods << { name: food.name, quantity: @quantity * -1, measurement_unit: food.measurement_unit,
+                                price: food.price }
+      @total_price += food.price * @quantity * -1
     end
   end
 
